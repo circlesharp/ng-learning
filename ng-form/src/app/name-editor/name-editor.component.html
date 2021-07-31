@@ -1,0 +1,8 @@
+<h2>name editor</h2>
+
+<label for="name">Name: </label>
+<input type="text" id="name" [formControl]="name" />
+<button (click)="updateName()">Update Name</button>
+
+<p>Value(value): {{ name.value }}</p>
+<p>Value(async): {{ name.valueChanges | async }}</p>
