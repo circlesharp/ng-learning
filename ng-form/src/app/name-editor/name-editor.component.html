@@ -1,8 +1,11 @@
 <h2>name editor</h2>
 
 <label for="name">Name: </label>
+<!-- register the control in the template -->
 <input type="text" id="name" [formControl]="name" />
+
 <button (click)="updateName()">Update Name</button>
 
+<h3>Displaying a form control value</h3>
 <p>Value(value): {{ name.value }}</p>
-<p>Value(async): {{ name.valueChanges | async }}</p>
+<p>Value(valueChanges, async): {{ name.valueChanges | async }}</p>

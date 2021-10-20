@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-profile-editor',
@@ -7,37 +7,19 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./profile-editor.component.css']
 })
 export class ProfileEditorComponent implements OnInit {
-  // profileForm = new FormGroup({
-  //   // the individual form controls are now collected within a group.
-  //   firstName: new FormControl('Tan'),
-  //   lastName: new FormControl('Rongzhao'),
-  //   address: new FormGroup({
-  //     street: new FormControl('street'),
-  //     city: new FormControl('city'),
-  //     state: new FormControl('state'),
-  //     zip: new FormControl('zip'),
-  //   }),
-  // });
-
-  profileForm = this.fb.group({
-    firstName: ['fb first name'],
-    lastName: ['fb last name'],
-    address: this.fb.group({
-      street: [''],
-      city: [''],
-      state: [''],
-      zip: [''],
-    }),
-  });
+  public profileForm!: FormGroup;
 
   constructor(
-    private fb: FormBuilder,
-  ) { }
-
-  ngOnInit(): void {
+    private formBuilder: FormBuilder,
+  ) {
+    this.initProfileForm();
   }
 
-  patchProfile() {
+  ngOnInit(): void {
+    this.profileForm.valueChanges.subscribe(console.log);
+  }
+
+  public patchProfile() {
     // replace any
     this.profileForm.patchValue({
       firstName: 'PatchValue',
@@ -47,10 +29,8 @@ export class ProfileEditorComponent implements OnInit {
     });
   }
 
-  setProfile() {
-    // strictly adheres to the structure of the form group
-    // and replaces the entire value for the control.
-
+  public setProfile() {
+    // strictly adheres to the structure of the form group and replaces the entire value for the control.
     const formValue = JSON.parse(JSON.stringify(this.profileForm.value));
     formValue.firstName = 'SetValue';
     formValue.address.street = 'Set Value';
@@ -58,8 +38,33 @@ export class ProfileEditorComponent implements OnInit {
     this.profileForm.setValue(formValue);
   }
 
-  onSubmit() {
-    // todo
+  public onSubmit() {
     console.warn('fire submit', this.profileForm.value);
   }
+
+  private initProfileForm() {
+    // the individual form controls are now collected within a group.
+    const isUseFormGroup = true;
+
+    if (isUseFormGroup) {
+      this.profileForm = new FormGroup({
+        firstName: new FormControl('Tan', Validators.required),
+        lastName: new FormControl('Rongzhao'),
+        address: new FormGroup({
+          street: new FormControl('street'),
+          city: new FormControl('city'),
+        }),
+      });
+    } else {
+      this.profileForm = this.formBuilder.group({
+        firstName: ['fb first name'],
+        lastName: ['fb last name'],
+        address: this.formBuilder.group({
+          street: [''],
+          city: [''],
+        }),
+      });
+    }
+  }
+
 }

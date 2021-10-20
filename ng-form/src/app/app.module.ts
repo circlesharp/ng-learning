@@ -21,7 +21,7 @@ import { ProfileEditorComponent } from './profile-editor/profile-editor.componen
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule, // register the reactive forms module
   ],
   providers: [],
   bootstrap: [AppComponent]

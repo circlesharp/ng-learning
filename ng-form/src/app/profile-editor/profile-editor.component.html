@@ -15,22 +15,18 @@
 
     <label for="city">City:</label>
     <input type="text" id="city" formControlName="city">
-
-    <label for="state">State:</label>
-    <input type="text" id="state" formControlName="state">
-
-    <label for="zip">Zip:</label>
-    <input type="text" id="zip" formControlName="zip">
   </div>
 
-  <!-- pre tag & jsonPipe -->
-  <pre>Profile Form Value: {{ profileForm.value | json }}</pre>
-
+  <h3>modify the form data</h3>
   <button type="button" (click)="setProfile()">setValue</button>
   <button type="button" (click)="patchProfile()">patchValue</button>
-
-  <p>Complete the form to enable button.</p>
+  
+  <h3>Complete the form to enable button.</h3>
   <button type="submit" [disabled]="!profileForm.valid">
     submit
   </button>
 </form>
+
+<!-- pre tag & jsonPipe -->
+<pre>Profile Form Value(value): {{ profileForm.value | json }}</pre>
+<pre>Profile Form Value(valueChanges, async): {{ profileForm.valueChanges | async | json }}</pre>

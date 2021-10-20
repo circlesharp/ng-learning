@@ -7,7 +7,7 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./name-editor.component.css']
 })
 export class NameEditorComponent implements OnInit {
-  name = new FormControl('');
+  public name = new FormControl(''); // generate a new FormControl
 
   constructor() {}
 
@@ -15,7 +15,7 @@ export class NameEditorComponent implements OnInit {
     this.name.valueChanges.subscribe(console.log);
   }
 
-  updateName() {
+  public updateName() {
     this.name.setValue('Nancy');
   }
 }
