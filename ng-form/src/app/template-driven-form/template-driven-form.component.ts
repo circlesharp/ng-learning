@@ -6,11 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./template-driven-form.component.css']
 })
 export class TemplateDrivenFormComponent implements OnInit {
-  favoriteColor = 'template driven';
+  public favoriteColor = 'template driven';
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  public handleChangeColor() {
+    this.favoriteColor = 'specific color';
+  }
 }

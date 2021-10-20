@@ -9,11 +9,14 @@ import { FormControl } from '@angular/forms';
 export class ReactiveFormComponent implements OnInit {
   // a form control instance / form model
   // link to the view through formControl directive
-  favoriteColorControl = new FormControl('reactive');
+  public favoriteColorControl = new FormControl('reactive');
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  public handleChangeColor() {
+    this.favoriteColorControl.setValue('specific color');
+  }
 }
