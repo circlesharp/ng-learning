@@ -1,0 +1,15 @@
+<h2>Nested Form</h2>
+
+<h3>options</h3>
+<button (click)="handleChangeWholeForm()">change the whole form's values</button>
+<button [disabled]="!totalFormGroup.valid" (click)="handleSubmit()">submit</button>
+
+<form [formGroup]="totalFormGroup">
+  <label for="self">self</label>
+  <input type="text" id="self" formControlName="selfCtrl">
+
+  <app-form-one #refFormOne></app-form-one>
+  <app-form-two #refFormTwo></app-form-two>
+</form>
+
+<pre>{{ totalFormGroup?.value | json }}</pre>
