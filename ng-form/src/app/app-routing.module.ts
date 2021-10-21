@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ClientSideFormValidationComponent } from './client-side-form-validation/client-side-form-validation.component';
 import { NameEditorComponent } from './name-editor/name-editor.component';
 import { NestedFormComponent } from './nested-form/nested-form.component';
 import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'name-editor', component: NameEditorComponent},
   {path: 'profile-editor', component: ProfileEditorComponent},
   {path: 'nested-form', component: NestedFormComponent},
+  {path: 'client-side-form-validation', component: ClientSideFormValidationComponent},
 ];
 
 @NgModule({

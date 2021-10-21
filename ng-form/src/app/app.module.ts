@@ -11,6 +11,9 @@ import { ProfileEditorComponent } from './profile-editor/profile-editor.componen
 import { NestedFormComponent } from './nested-form/nested-form.component';
 import { FormOneComponent } from './nested-form/components/form-one/form-one.component';
 import { FormTwoComponent } from './nested-form/components/form-two/form-two.component';
+import { ClientSideFormValidationComponent } from './client-side-form-validation/client-side-form-validation.component';
+import { BuiltInFormValidationComponent } from './client-side-form-validation/components/built-in-form-validation/built-in-form-validation.component';
+import { JavaScriptFormValidationComponent } from './client-side-form-validation/components/java-script-form-validation/java-script-form-validation.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { FormTwoComponent } from './nested-form/components/form-two/form-two.com
     ProfileEditorComponent,
     NestedFormComponent,
     FormOneComponent,
-    FormTwoComponent
+    FormTwoComponent,
+    ClientSideFormValidationComponent,
+    BuiltInFormValidationComponent,
+    JavaScriptFormValidationComponent,
   ],
   imports: [
     BrowserModule,
