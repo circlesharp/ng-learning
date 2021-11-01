@@ -1,0 +1,26 @@
+<h1>Parent</h1>
+
+<div>
+  <h2>Child A</h2>
+  <app-child-a #childA>
+    <div #contentA>
+      content of a works
+    </div>
+  </app-child-a>
+</div>
+
+<div>
+  <h2>Child B</h2>
+  <app-child-b [obj]="obj" [name]="obj.name"></app-child-b>
+  <input #inputB>
+</div>
+
+<div class="test-undefined">
+  <span *ngFor="let item of items">
+    {{ item }}
+  </span>
+</div>
+
+<div class="test-undefined">
+  {{ items[2] }}
+</div>
